@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luxury Hotel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    html, body {
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      height: 10vh;
+      background-color: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+    }
+
+    header h1 {
+      color: white;
+      font-size: 1.5em;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .main {
+      height: 75vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .row {
+      flex: 1;
+      display: flex;
+    }
+
+    .column {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .column img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.4);
+      font-size: 0.9em;
+    }
+
+    h2 {
+      margin-bottom: 8px;
+      font-size: 1.2em;
+    }
+
+    p, li {
+      font-size: 0.85em;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    footer {
+      height: 15vh;
+      background-color: #222;
+      color: #aaa;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 0.85em;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 10px;
+      }
+
+      nav {
+        margin-top: 5px;
+      }
+
+      .row {
+        flex-direction: column;
+      }
+
+      .main {
+        overflow-y: auto;
+        height: auto;
+        flex: 1;
+      }
+
+      body {
+        overflow: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Luxury Hotel</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <div class="main">
+    
+    <div class="row">
+      <div class="column">
+        <img src="C:\web development\hotel entrance.jpg" alt="Hotel Entrance" />
+        <div class="content">
+           <h2>Entrance</h2> 
+          <p>Timeless elegance begins here.</p>
+        </div>
+      </div>
+      <div class="column">
+        <img src="C:\web development\interior.jpg" alt="Interior" />
+        <div class="content">
+          <h2>Interior</h2>
+          <p>Refined and welcoming atmosphere.</p>
+        </div>
+      </div>
+      <div class="column">
+        <img src="C:\web development\luxury image.jpg" alt="Luxury Room" />
+        <div class="content">
+          <h2>Luxury Suite</h2>
+          <p>Ocean view, king bed, personalized service.</p>
+        </div>
+      </div>
+      <div class="column">
+        <img src="C:\web development\delux room.jpg" alt="Deluxe Room" />
+        <div class="content">
+          <h2>Deluxe Room</h2>
+          <p>City view, modern design, cozy elegance.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="column">
+        <img src="C:\web development\dinning and food.jpg" alt="Dining" />
+        <div class="content">
+          <h2>Fine Dining</h2>
+          <p>Gourmet experiences crafted by top chefs.</p>
+        </div>
+      </div>
+      <div class="column">
+        <img src="C:\web development\amenities.jpg" alt="Amenities" />
+        <div class="content">
+          <h2>Amenities</h2>
+          <ul>
+            <li>Infinity Pool</li>
+            <li>Spa & Wellness</li>
+            <li>24/7 Room Service</li>
+          </ul>
+        </div>
+      </div>
+      <div class="column">
+        <img src="C:\web development\Booking.jpg" alt="Booking" />
+        <div class="content">
+          <h2>Book Now</h2>
+          <ul>
+            <li>Reserve your luxury stay today.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Luxury Hotel. All rights reserved.
+  </footer>
+
+</body>
+</html>
