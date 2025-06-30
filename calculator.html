@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dynamic Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .calculator {
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    }
+
+    #display {
+      width: 100%;
+      height: 60px;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      padding: 10px;
+      text-align: right;
+      border: none;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      padding: 20px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #444;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" readonly />
+    <div class="buttons" id="buttons">
+    
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+    const buttonsContainer = document.getElementById('buttons');
+
+    
+    const buttonLayout = [
+      ['C', 'DEL', '/', '*'],
+      ['7', '8', '9', '-'],
+      ['4', '5', '6', '+'],
+      ['1', '2', '3', '='],
+      ['0', '.']
+    ];
+
+    
+    buttonLayout.forEach(row => {
+      row.forEach(label => {
+        const btn = document.createElement('button');
+        btn.textContent = label;
+        btn.addEventListener('click', () => handleInput(label));
+        buttonsContainer.appendChild(btn);
+      });
+    });
+
+    function handleInput(label) {
+      switch (label) {
+        case 'C':
+          display.value = '';
+          break;
+        case 'DEL':
+          display.value = display.value.slice(0, -1);
+          break;
+        case '=':
+          try {
+            display.value = compute(display.value);
+          } catch {
+            display.value = 'Error';
+          }
+          break;
+        default:
+          display.value += label;
+      }
+    }
+
+    function compute(expression) {
+      if (!/^[\d+\-*/(). ]+$/.test(expression)) {
+        throw new Error("Invalid input");
+      }
+      return new Function('return ' + expression)();
+    }
+  </script>
+</body>
+</html>
